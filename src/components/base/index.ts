@@ -1,2 +1,2 @@
-export * from "./CustomInput";
-export { default as CustomInput } from "./CustomInput";
+export type { CustomInputProps, RefProps } from "./customInput";
+export { default as CustomInput } from "./customInput";
