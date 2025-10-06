@@ -14,5 +14,5 @@
     }
   ],
   "labels": ["dependencies"],
-  "bbUseDevelopmentBranch": true
+  "baseBranch": "develop"
 }
