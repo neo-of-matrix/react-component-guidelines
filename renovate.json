@@ -2,13 +2,13 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch", "minor"],
-      "automerge": true,
+      "matchUpdateTypes": ["patch"],
+      "automerge": false,
       "automergeType": "pr",
       "schedule": ["every weekday"]
     },
     {
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": ["minor", "major"],
       "automerge": false,
       "schedule": ["on the 1st day of the month"]
     }
