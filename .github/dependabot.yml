@@ -5,10 +5,10 @@
 
 version: 2
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-    # 仅允许 patch 更新，忽略 minor 和 major
-    allow:
-      - update-type: "version-update:semver-patch"
+      interval: "daily"
+    groups:
+      patches:
+        update-types: ["patch"]
