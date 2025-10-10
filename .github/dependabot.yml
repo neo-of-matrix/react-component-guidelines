@@ -7,9 +7,7 @@ updates:
     schedule:
       interval: "weekly"  # 每周检查一次更新
     # 只更新 patch 级别版本
-    versioning-strategy: increase
-    allow:
-      - dependency-type: "all"
+    versioning-strategy: "pin"
 
   # 配置 npm 的更新规则
   - package-ecosystem: "npm"
@@ -17,17 +15,4 @@ updates:
     schedule:
       interval: "weekly"
     # 只接受 patch 级别更新
-    versioning-strategy: increase
-    allow:
-      - dependency-type: "all"
-      - update-type: ["patch"]  # 明确指定只更新patch
-
-  # 如果你使用其他包管理器，可以添加相应配置
-  # 例如Python的pip
-  # - package-ecosystem: "pip"
-  #   directory: "/"
-  #   schedule:
-  #     interval: "weekly"
-  #   allow:
-  #     - update-type: ["patch"]
-    
+    versioning-strategy: "pin"
