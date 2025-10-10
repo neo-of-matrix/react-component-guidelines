@@ -9,5 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    ignore:
-      update-types: ["version-update:semver-major", "version-update:semver-minor"]
+    # 仅允许 patch 更新，忽略 minor 和 major
+    allow:
+      - update-type: "version-update:semver-patch"
