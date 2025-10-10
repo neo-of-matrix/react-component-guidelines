@@ -6,7 +6,7 @@ updates:
     directory: "/"  # 工作流文件通常在 .github/workflows 目录
     schedule:
       interval: "weekly"  # 每周检查一次更新
-    # 只更新 patch 级别的版本
+    target-branch: "develop"
     ignore:
       # 忽略 major 和 minor 级别更新
       - dependency-name: "*"
@@ -17,6 +17,7 @@ updates:
     directory: "/"  # package.json所在目录
     schedule:
       interval: "weekly"
+    target-branch: "develop"
     ignore:
       # 忽略 major 和 minor 级别更新
       - dependency-name: "*"
