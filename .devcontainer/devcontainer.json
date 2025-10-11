@@ -1,0 +1,64 @@
+{
+  "$schema": "./devContainer.vscode.schema.json",
+  "name": "react-component-guidelines Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "postCreateCommand": "npm config set registry https://registry.npmmirror.com && npm ci",
+  "runArgs": [
+    "--security-opt=no-new-privileges:true",
+    "--cap-drop=ALL",
+    "--cap-add=CHOWN",
+    "--cap-add=SETUID",
+    "--cap-add=SETGID"
+  ],
+  "containerEnv": {
+    "NODE_OPTIONS": "--disable-proto=delete"
+  },
+  "forwardPorts": [9000],
+  "portsAttributes": {
+    "9000": {
+      "label": "Vite Dev Server"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "littlecareless.dish-ai-commit",
+        "wix.vscode-import-cost",
+        "xabikos.JavaScriptSnippets",
+        "ms-vscode.vscode-typescript-next",
+        "rohinivsenthil.postcode",
+        "vue.volar"
+      ],
+      "settings": {
+        "editor.fontSize": 18,
+        "editor.wordWrap": "on",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.quickSuggestions": {
+          "strings": true
+        },
+        "cSpell.userWords": ["antd"],
+        "editor.formatOnSave": true,
+        "dish-ai-commit.base.language": "Simplified Chinese",
+        "dish-ai-commit.base.provider": "Deepseek",
+        "dish-ai-commit.base.model": "deepseek-chat",
+        "dish-ai-commit.providers.openai.baseUrl": "https://api.openai.com/v1",
+        "dish-ai-commit.providers.deepseek.apiKey": "",
+        "dish-ai-commit.features.codeAnalysis.diffTarget": "all",
+        "dish-ai-commit.features.codeAnalysis.simplifyDiff": false,
+        "dish-ai-commit.features.commitFormat.enableEmoji": true,
+        "dish-ai-commit.features.commitFormat.enableMergeCommit": false,
+        "dish-ai-commit.features.commitFormat.enableBody": true,
+        "dish-ai-commit.features.commitFormat.enableLayeredCommit": false,
+        "dish-ai-commit.features.commitMessage.systemPrompt": "",
+        "dish-ai-commit.features.commitMessage.useRecentCommitsAsReference": false,
+        "dish-ai-commit.features.prSummary.baseBranch": "origin/main",
+        "dish-ai-commit.features.prSummary.headBranch": "HEAD",
+        "dish-ai-commit.features.prSummary.commitLogLimit": 20
+      }
+    }
+  }
+}
