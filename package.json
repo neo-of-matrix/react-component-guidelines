@@ -9,13 +9,15 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "knip": "knip",
-    "ncu": "npm-check-updates --target patch"
+    "ncu": "npm-check-updates --target patch",
+    "server": "node server.js"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "antd": "^5.27.4",
     "classnames": "^2.5.1",
+    "multiparty": "^4.2.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router": "^7.9.3"
