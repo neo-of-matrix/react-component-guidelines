@@ -244,7 +244,7 @@ export interface MyInputProps {
   /** 状态 */
   state: string
 }
-const MyInput = (props: Partail<MyInputProps>) => {
+const MyInput = (props: Partial<MyInputProps>) => {
   const { value, limit, state } = props
   // ...一些处理
   return (
@@ -499,7 +499,7 @@ export default function MyInput(props: MyInputProps) {
 bad ❌
 
 ```tsx
-import { useLatest } from 'ahooks'  // 之前组件库无ahooks, 会引入新的依赖！
+import { useLatest } from 'ahooks'  // 之前组件库无 ahooks, 会引入新的依赖！
 import classNames from 'classnames';
 const ChcInput = forwardRef((props: InputProps, ref: React.LegacyRef<Input>) => {
   const { className, ...rest } = props;
@@ -522,7 +522,7 @@ export function useLatest(value) {
 }
 ...
 // 组件
-import { useLatest } from '@/hooks'  // 之前组件库无ahooks引入新的依赖！
+import { useLatest } from '@/hooks'  // 之前组件库无 ahooks 引入新的依赖！
 import classNames from 'classnames';
 const ChcInput = forwardRef((props: InputProps, ref: React.LegacyRef<Input>) => {
   const { className, ...rest } = props;
