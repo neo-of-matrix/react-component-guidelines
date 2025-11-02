@@ -7,11 +7,6 @@
       "automerge": false,
       "automergeType": "pr",
       "schedule": ["every weekday"]
-    },
-    {
-      "matchUpdateTypes": ["minor", "major"],
-      "automerge": false,
-      "schedule": ["on the 1st day of the month"]
     }
   ],
   "labels": ["dependencies"],
