@@ -11,7 +11,8 @@
     "knip": "knip",
     "ncu": "npm-check-updates --target patch",
     "server": "node server.js",
-    "spellCheck": "cspell . --no-progress --no-summary"
+    "spellCheck": "cspell . --no-progress --no-summary",
+    "format": "prettier . --write --ignore-unknown"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
@@ -36,6 +37,7 @@
     "knip": "^5.64.1",
     "less": "^4.4.1",
     "npm-check-updates": "^19.0.0",
+    "prettier": "3.6.2",
     "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.44.0",
