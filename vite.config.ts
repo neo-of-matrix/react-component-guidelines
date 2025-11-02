@@ -8,4 +8,10 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 9000,
   },
+  resolve: {
+    alias: {
+      "@": "/src",
+      "@components": "/src/components",
+    },
+  },
 });

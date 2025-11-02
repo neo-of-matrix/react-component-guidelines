@@ -1,8 +1,8 @@
-import { CustomInput } from "../components/base/index";
+import { CustomInput } from "@components/base/index";
 import { useRef, useCallback, useState } from "react";
 import { Space, Button, Card } from "antd";
 import type { InputRef } from "antd";
-import type { RefProps } from "../components/base/index";
+import type { RefProps } from "@components/base/index";
 // import type { ComponentProps, ComponentRef } from "react";
 
 // type CustomInputProps = ComponentProps<typeof CustomInput>;
