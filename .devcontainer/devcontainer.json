@@ -1,7 +1,7 @@
 {
   "$schema": "./devContainer.vscode.schema.json",
   "name": "react-component-guidelines Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
   "postCreateCommand": "npm config set registry https://registry.npmmirror.com",
   "runArgs": [
     "--security-opt=no-new-privileges:true",
