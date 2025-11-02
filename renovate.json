@@ -15,5 +15,5 @@
     }
   ],
   "labels": ["dependencies"],
-  "baseBranch": "develop"
+  "baseBranchPatterns": ["develop"]
 }
