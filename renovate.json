@@ -3,12 +3,12 @@
   "extends": ["config:recommended"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch"],
-      "automerge": false,
-      "automergeType": "pr",
-      "schedule": ["every weekday"]
+      "matchUpdateTypes": ["patch"]
     }
   ],
+  "automerge": false,
+  "automergeType": "pr",
   "labels": ["dependencies"],
-  "baseBranchPatterns": ["develop"]
+  "baseBranchPatterns": ["develop"],
+  "schedule": ["every weekday"]
 }
