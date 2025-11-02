@@ -10,5 +10,6 @@
   "automergeType": "pr",
   "labels": ["dependencies"],
   "baseBranchPatterns": ["develop"],
-  "schedule": ["every weekday"]
+  "schedule": ["every weekday"],
+  "recreateWhen": "never"
 }
