@@ -1,18 +1,38 @@
 {
   "name": "react-component-guidelines",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/neo-of-matrix/react-component-guidelines#readme",
+  "bugs": {
+    "url": "https://github.com/neo-of-matrix/react-component-guidelines/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo-of-matrix/react-component-guidelines.git"
+  },
+  "funding": "https://github.com/sponsors/neo-of-matrix",
+  "author": {
+    "name": "neo",
+    "email": "zuishiguang@126.com"
+  },
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
+    "ci:eslint": "eslint -f json src -o ./.ci/eslint.json",
+    "dev": "vite",
     "knip": "knip",
+    "lint": "eslint . && stylelint --allow-empty-input \"**/*.{css,less,scss}\"",
+    "lint:fix": "prettier --write . && eslint --fix . && stylelint --allow-empty-input --fix \"**/*.{css,less,scss}\"",
     "ncu": "npm-check-updates --target patch",
+    "prepare": "husky",
+    "preview": "vite preview",
     "server": "node server.js",
-    "spellCheck": "cspell . --no-progress --no-summary",
-    "format": "prettier . --write --ignore-unknown"
+    "spellCheck": "cspell . --no-progress --no-summary"
+  },
+  "lint-staged": {
+    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx,vue}": "eslint --fix",
+    "*.{css,less,scss}": "stylelint --fix",
+    "*.{cjs,css,cts,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,vue,yaml,yml}": "prettier --write"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
@@ -25,20 +45,30 @@
     "react-router": "^7.9.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",
     "cspell": "^9.2.2",
     "eslint": "^9.36.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-config-ali": "^16.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "knip": "^5.64.1",
     "less": "^4.4.1",
+    "lint-staged": "^16.2.6",
     "npm-check-updates": "^19.0.0",
-    "prettier": "3.6.2",
+    "prettier": "^3.6.2",
+    "prettier-config-ali": "^1.5.0",
     "rollup-plugin-visualizer": "^6.0.5",
+    "stylelint": "^16.25.0",
+    "stylelint-config-ali": "^2.3.0",
+    "stylelint-prettier": "^5.0.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.44.0",
     "vite": "^7.1.12"

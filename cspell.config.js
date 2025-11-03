@@ -3,7 +3,7 @@
 /** @type { import("@cspell/cspell-types").CSpellUserSettings } */
 const cspell = {
   language: 'en, zh-CN',
-  ignorePaths: ['node_modules/**', 'dist', '**/*.svg'],
+  ignorePaths: ['node_modules/**', 'dist', '**/*.svg', '.github', '.devcontainer', 'bin', '.git'],
   words: ['ahooks'],
 };
 
