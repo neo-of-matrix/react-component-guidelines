@@ -4,18 +4,19 @@
  */
 const config = {
   // 详见 https://prettier.io/docs/en/options
+  // https://github.com/alibaba/f2e-spec/blob/main/packages/prettier-config-ali/index.js
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
   semi: true,
   singleQuote: true,
-  quoteProps: "as-needed",
+  quoteProps: 'as-needed',
   jsxSingleQuote: false,
-  trailingComma: "all",
+  trailingComma: 'all',
   bracketSpacing: true,
   bracketSameLine: false,
-  arrowParens: "always",
-  endOfLine: "lf",
+  arrowParens: 'always',
+  endOfLine: 'lf',
   // 从 Prettier 3.x 开始，插件必须配置才能生效
   plugins: [],
 };
