@@ -1,3 +1,4 @@
+import { reportError } from '@requests/reportError';
 import { mergeChunksRequest } from '@requests/upload';
 // 前端分片上传代码
 const createChunk = ({
@@ -34,7 +35,11 @@ const uploadChunk = async (formData: FormData) => {
     });
     await response.json();
   } catch (err) {
-    console.error('Error uploading chunk:', err);
+    reportError({
+      name: 'ChunkUploadError',
+      message: 'Error uploading chunk',
+      stack: err instanceof Error ? err.stack : String(err),
+    });
     throw err;
   }
 };
@@ -51,15 +56,14 @@ async function concurrentUpload(chunkList: FormData[], maxConcurrent = 3) {
   const results = [];
   for (let i = 0; i < chunkList.length; i += maxConcurrent) {
     const batch = chunkList.slice(i, i + maxConcurrent);
-    const batchResults = await Promise.all(
-      batch.map((formData) => {
-        return uploadChunk(formData);
-      }),
-    );
-    results.push(...batchResults);
+    const batchResults = batch.map((formData) => {
+      return uploadChunk(formData);
+    });
+    results.push(batchResults);
   }
-  return results;
+  return await Promise.all(results.flat());
 }
+
 async function uploadFile(file: File) {
   const chunkSize = 5 * 1024 * 1024;
   const totalChunks = Math.ceil(file.size / chunkSize);

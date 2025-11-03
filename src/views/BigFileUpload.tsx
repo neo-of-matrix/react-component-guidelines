@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, App, Upload } from 'antd';
 import type { GetProp, UploadFile, UploadProps } from 'antd';
+import { App, Button, Upload } from 'antd';
+import React, { useState } from 'react';
 import { uploadFile } from '../utils';
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
@@ -21,7 +21,11 @@ const BigFileUpload: React.FC = () => {
       setUploading(false);
       message.success('上传成功');
     } catch (error) {
-      console.error('🚀 ~ handleUpload ~ error:', error);
+      reportError({
+        name: 'BigFileUploadError',
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : String(error),
+      });
       setUploading(false);
       message.error('上传失败');
     }

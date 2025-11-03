@@ -22,7 +22,7 @@
     "dev": "vite",
     "knip": "knip",
     "lint": "eslint . && stylelint --allow-empty-input \"**/*.{css,less,scss}\"",
-    "lint:fix": "prettier --write . && eslint --fix . && stylelint --allow-empty-input --fix \"**/*.{css,less,scss}\"",
+    "lint:fix": "prettier --write --ignore-unknown --log-level silent . && eslint --fix . && stylelint --allow-empty-input --fix \"**/*.{css,less,scss}\"",
     "ncu": "npm-check-updates --target patch",
     "prepare": "husky",
     "preview": "vite preview",

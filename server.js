@@ -1,7 +1,8 @@
-import http from 'node:http';
-import fs from 'node:fs';
-import path from 'node:path';
+/* eslint no-console: "off" */
 import multiparty from 'multiparty';
+import fs from 'node:fs';
+import http from 'node:http';
+import path from 'node:path';
 
 // 常量定义
 const TEMP_DIR = './dist/temp';
@@ -43,8 +44,8 @@ async function handleChunkUpload(req, res) {
       }
 
       const fileId = fields.fileId[0];
-      const chunkIndex = parseInt(fields.chunkIndex[0]);
-      const totalChunks = parseInt(fields.totalChunks[0]);
+      const chunkIndex = parseInt(fields.chunkIndex[0], 10);
+      const totalChunks = parseInt(fields.totalChunks[0], 10);
       const chunkFile = files.file[0];
 
       const chunkDir = path.join(TEMP_DIR, fileId);

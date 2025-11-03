@@ -1,3 +1,5 @@
+import { reportError } from '@requests/reportError';
+
 const mergeChunksRequest = async (data: {
   fileId: string;
   originalFilename: string;
@@ -15,7 +17,11 @@ const mergeChunksRequest = async (data: {
     const result = (await response.json()) as { status: string };
     return result;
   } catch (err) {
-    console.error('Error merging chunks:', err);
+    reportError({
+      name: 'MergeChunksRequestError',
+      message: err instanceof Error ? err.message : String(err),
+      stack: err instanceof Error ? err.stack : String(err),
+    });
     throw err;
   }
 };
