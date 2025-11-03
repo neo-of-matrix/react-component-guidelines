@@ -9,110 +9,110 @@ importers:
   .:
     dependencies:
       '@ant-design/icons':
-        specifier: ~5.6.1
+        specifier: ^5.6.1
         version: 5.6.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@ant-design/v5-patch-for-react-19':
-        specifier: ~1.0.3
+        specifier: ^1.0.3
         version: 1.0.3(antd@5.27.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       antd:
-        specifier: ~5.27.6
+        specifier: ^5.27.6
         version: 5.27.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       classnames:
-        specifier: ~2.5.1
+        specifier: ^2.5.1
         version: 2.5.1
       multiparty:
-        specifier: ~4.2.3
+        specifier: ^4.2.3
         version: 4.2.3
       react:
-        specifier: ~19.1.1
+        specifier: ^19.1.1
         version: 19.1.1
       react-dom:
-        specifier: ~19.1.1
+        specifier: ^19.1.1
         version: 19.1.1(react@19.1.1)
       react-router:
-        specifier: ~7.9.3
+        specifier: ^7.9.3
         version: 7.9.5(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
       '@commitlint/cli':
-        specifier: ~19.8.1
+        specifier: ^19.8.1
         version: 19.8.1(@types/node@24.10.0)(typescript@5.8.3)
       '@commitlint/config-conventional':
-        specifier: ~19.8.1
+        specifier: ^19.8.1
         version: 19.8.1
       '@eslint/js':
-        specifier: ~9.36.0
+        specifier: ^9.36.0
         version: 9.36.0
       '@types/react':
-        specifier: ~19.1.13
+        specifier: ^19.1.13
         version: 19.1.17
       '@types/react-dom':
-        specifier: ~19.1.9
+        specifier: ^19.1.9
         version: 19.1.11(@types/react@19.1.17)
       '@vitejs/plugin-react':
-        specifier: ~5.0.3
+        specifier: ^5.0.3
         version: 5.0.4(vite@7.1.12(@types/node@24.10.0)(jiti@2.6.1)(less@4.4.2)(yaml@2.8.1))
       cspell:
-        specifier: ~9.2.2
+        specifier: ^9.2.2
         version: 9.2.2
       eslint:
         specifier: ~9.36.0
         version: 9.36.0(jiti@2.6.1)
       eslint-config-ali:
-        specifier: ~16.5.0
+        specifier: ^16.5.0
         version: 16.5.0(eslint@9.36.0(jiti@2.6.1))
       eslint-config-prettier:
-        specifier: ~10.1.8
+        specifier: ^10.1.8
         version: 10.1.8(eslint@9.36.0(jiti@2.6.1))
       eslint-plugin-prettier:
-        specifier: ~5.5.4
+        specifier: ^5.5.4
         version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.36.0(jiti@2.6.1)))(eslint@9.36.0(jiti@2.6.1))(prettier@3.6.2)
       eslint-plugin-react-refresh:
-        specifier: ~0.4.24
+        specifier: ^0.4.24
         version: 0.4.24(eslint@9.36.0(jiti@2.6.1))
       globals:
-        specifier: ~16.4.0
+        specifier: ^16.4.0
         version: 16.4.0
       husky:
-        specifier: ~9.1.7
+        specifier: ^9.1.7
         version: 9.1.7
       knip:
-        specifier: ~5.64.1
-        version: 5.64.3(@types/node@24.10.0)(typescript@5.8.3)
+        specifier: ^5.64.1
+        version: 5.67.1(@types/node@24.10.0)(typescript@5.8.3)
       less:
-        specifier: ~4.4.1
+        specifier: ^4.4.1
         version: 4.4.2
       lint-staged:
-        specifier: ~16.2.6
+        specifier: ^16.2.6
         version: 16.2.6
       npm-check-updates:
-        specifier: ~19.0.0
+        specifier: ^19.0.0
         version: 19.0.0
       prettier:
-        specifier: ~3.6.2
+        specifier: 3.6.2
         version: 3.6.2
       prettier-config-ali:
-        specifier: ~1.5.0
+        specifier: ^1.5.0
         version: 1.5.0(prettier@3.6.2)
       rollup-plugin-visualizer:
-        specifier: ~6.0.5
+        specifier: ^6.0.5
         version: 6.0.5(rollup@4.52.5)
       stylelint:
-        specifier: ~16.25.0
+        specifier: ^16.25.0
         version: 16.25.0(typescript@5.8.3)
       stylelint-config-ali:
-        specifier: ~2.3.0
+        specifier: ^2.3.0
         version: 2.3.0(stylelint@16.25.0(typescript@5.8.3))
       stylelint-prettier:
-        specifier: ~5.0.3
+        specifier: ^5.0.3
         version: 5.0.3(prettier@3.6.2)(stylelint@16.25.0(typescript@5.8.3))
       typescript:
         specifier: ~5.8.3
         version: 5.8.3
       typescript-eslint:
-        specifier: ~8.44.0
+        specifier: ^8.44.0
         version: 8.44.1(eslint@9.36.0(jiti@2.6.1))(typescript@5.8.3)
       vite:
-        specifier: ~7.1.12
+        specifier: ^7.1.12
         version: 7.1.12(@types/node@24.10.0)(jiti@2.6.1)(less@4.4.2)(yaml@2.8.1)
 
 packages:
@@ -1364,49 +1364,41 @@ packages:
     resolution: {integrity: sha512-uhbth0AM9IZsKIKJS6esg+0xlMMiJsvr8hH/HIY3nUjW4elKLsBOj3MbgdOIBvWOg+edJ0FXM9h22riy254xBw==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-resolver/binding-linux-arm64-musl@11.13.0':
     resolution: {integrity: sha512-87J7aIXOXQ6VuvJU9BQHcpf/llHPKmHYkFgwTc6KyX9YJ6th1jr6z3Soi1F0/xs74Ay3/CSgtZ9UJRDAkx6kRA==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@oxc-resolver/binding-linux-ppc64-gnu@11.13.0':
     resolution: {integrity: sha512-qARWktXmpNO9raSxykwicNbcVIF8A0FrK0rtKCIds4FsBBr9M9lUPzG4BfZm/Qg4S4OnnQGQxFzmcnEiwBqjsg==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-resolver/binding-linux-riscv64-gnu@11.13.0':
     resolution: {integrity: sha512-k3SNJQi1PiUvyzRPqLIl0jGST4pOUn6ISWvk9Gg28FPS+ng1XwWEEXV2sSKncLNgh/UKjv81LcNy8m17STJuRg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-resolver/binding-linux-riscv64-musl@11.13.0':
     resolution: {integrity: sha512-JPZhlZkJY5HUed0J13TttkzDs+J2DbE516MgSDCCKkYGTGPZ9Z1ZcOae1wOLYZOYoYVLzool1Bijt2eVVoLZ9Q==}
     cpu: [riscv64]
     os: [linux]
-    libc: [musl]
 
   '@oxc-resolver/binding-linux-s390x-gnu@11.13.0':
     resolution: {integrity: sha512-Qh69bTj4cinpemWwSfULn2dw0YZnNdOfD9/bT4+5yrCIemaloJ6rmj1p1TTPS1lvhvxuuAPVw4husR3Mp48Kew==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-resolver/binding-linux-x64-gnu@11.13.0':
     resolution: {integrity: sha512-GksRH4TxcnDxFeq+DmP+L/X7f6sTHO0sBHv4WVOXF9EESWLavbcrHMzOLCb1Hz9BecUVqXTfVhLHLgBZFQb2iQ==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-resolver/binding-linux-x64-musl@11.13.0':
     resolution: {integrity: sha512-3lieqELuhnsjc6rAZiKYJaIKDCNNAsOt5wazi+/h1McaWB4VwKO0If6kI2gSvcs01u4XrIeDKNcR85JxzChYxA==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@oxc-resolver/binding-wasm32-wasi@11.13.0':
     resolution: {integrity: sha512-FFX6UDhT9yVVsj7/HBpdUtVT589QavKNo9c/GyIyZhzJhZ33OIo0eHZewFF43sGsO+eixrrdt3hQlPfZ9ei+oA==}
@@ -1524,67 +1516,56 @@ packages:
     resolution: {integrity: sha512-PsNAbcyv9CcecAUagQefwX8fQn9LQ4nZkpDboBOttmyffnInRy8R8dSg6hxxl2Re5QhHBf6FYIDhIj5v982ATQ==}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.52.5':
     resolution: {integrity: sha512-Fw4tysRutyQc/wwkmcyoqFtJhh0u31K+Q6jYjeicsGJJ7bbEq8LwPWV/w0cnzOqR2m694/Af6hpFayLJZkG2VQ==}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.52.5':
     resolution: {integrity: sha512-a+3wVnAYdQClOTlyapKmyI6BLPAFYs0JM8HRpgYZQO02rMR09ZcV9LbQB+NL6sljzG38869YqThrRnfPMCDtZg==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.52.5':
     resolution: {integrity: sha512-AvttBOMwO9Pcuuf7m9PkC1PUIKsfaAJ4AYhy944qeTJgQOqJYJ9oVl2nYgY7Rk0mkbsuOpCAYSs6wLYB2Xiw0Q==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-loong64-gnu@4.52.5':
     resolution: {integrity: sha512-DkDk8pmXQV2wVrF6oq5tONK6UHLz/XcEVow4JTTerdeV1uqPeHxwcg7aFsfnSm9L+OO8WJsWotKM2JJPMWrQtA==}
     cpu: [loong64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-ppc64-gnu@4.52.5':
     resolution: {integrity: sha512-W/b9ZN/U9+hPQVvlGwjzi+Wy4xdoH2I8EjaCkMvzpI7wJUs8sWJ03Rq96jRnHkSrcHTpQe8h5Tg3ZzUPGauvAw==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-gnu@4.52.5':
     resolution: {integrity: sha512-sjQLr9BW7R/ZiXnQiWPkErNfLMkkWIoCz7YMn27HldKsADEKa5WYdobaa1hmN6slu9oWQbB6/jFpJ+P2IkVrmw==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.52.5':
     resolution: {integrity: sha512-hq3jU/kGyjXWTvAh2awn8oHroCbrPm8JqM7RUpKjalIRWWXE01CQOf/tUNWNHjmbMHg/hmNCwc/Pz3k1T/j/Lg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.52.5':
     resolution: {integrity: sha512-gn8kHOrku8D4NGHMK1Y7NA7INQTRdVOntt1OCYypZPRt6skGbddska44K8iocdpxHTMMNui5oH4elPH4QOLrFQ==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.52.5':
     resolution: {integrity: sha512-hXGLYpdhiNElzN770+H2nlx+jRog8TyynpTVzdlc6bndktjKWyZyiCsuDAlpd+j+W+WNqfcyAWz9HxxIGfZm1Q==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.52.5':
     resolution: {integrity: sha512-arCGIcuNKjBoKAXD+y7XomR9gY6Mw7HnFBv5Rw7wQRvwYLR7gBAgV7Mb2QTyjXfTveBNFAtPt46/36vV9STLNg==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@rollup/rollup-openharmony-arm64@4.52.5':
     resolution: {integrity: sha512-QoFqB6+/9Rly/RiPjaomPLmR/13cgkIGfA40LHly9zcH1S0bN2HVFYk3a1eAyHQyjs3ZJYlXvIGtcCs5tko9Cw==}
@@ -2812,8 +2793,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  knip@5.64.3:
-    resolution: {integrity: sha512-P9dZetEZfSBwNBFwj55CAnPAMdzVLTTscWx6rdB8eBmPqXPji8F3L+hhWi+Xp+u9O6Xp2ClRDq2JENSK8Z04Qg==}
+  knip@5.67.1:
+    resolution: {integrity: sha512-U5AtiqnZAbWIxihs5wxFFEZlpKhzRLWlXSGwA79na7wvlX+MsE0rSuU6If+kl/A4o3TDzTtKGZ4SjeLyWkNR/A==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -7059,7 +7040,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knip@5.64.3(@types/node@24.10.0)(typescript@5.8.3):
+  knip@5.67.1(@types/node@24.10.0)(typescript@5.8.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.10.0
