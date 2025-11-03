@@ -1,1 +1,1 @@
-export { uploadFile } from "./bigFileUpload";
+export { uploadFile } from './bigFileUpload';

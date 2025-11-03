@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, App, Upload } from "antd";
-import type { GetProp, UploadFile, UploadProps } from "antd";
-import { uploadFile } from "../utils";
+import React, { useState } from 'react';
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, App, Upload } from 'antd';
+import type { GetProp, UploadFile, UploadProps } from 'antd';
+import { uploadFile } from '../utils';
 
-type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
 const BigFileUpload: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -16,13 +16,13 @@ const BigFileUpload: React.FC = () => {
       await Promise.all(
         fileList.map(async (file) => {
           await uploadFile(file as FileType);
-        })
+        }),
       );
       setUploading(false);
-      message.success("上传成功");
+      message.success('上传成功');
     } catch (error) {
       setUploading(false);
-      message.error("上传失败");
+      message.error('上传失败');
     }
   };
 
@@ -52,7 +52,7 @@ const BigFileUpload: React.FC = () => {
         loading={uploading}
         style={{ marginTop: 16 }}
       >
-        {uploading ? "Uploading" : "Start Upload"}
+        {uploading ? 'Uploading' : 'Start Upload'}
       </Button>
     </div>
   );

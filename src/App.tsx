@@ -1,8 +1,8 @@
-import { ConfigProvider, App } from "antd";
-import "./App.css";
-import Input from "./views/Input";
-import BigFileUpload from "./views/BigFileUpload";
-import { Space } from "antd";
+import { ConfigProvider, App } from 'antd';
+import './App.css';
+import Input from './views/Input';
+import BigFileUpload from './views/BigFileUpload';
+import { Space } from 'antd';
 
 function Main() {
   return (

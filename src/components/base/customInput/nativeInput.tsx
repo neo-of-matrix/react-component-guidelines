@@ -1,5 +1,5 @@
-import { useImperativeHandle, useRef, useMemo, type Ref } from "react";
-import { usePropsValue } from "./hooks";
+import { useImperativeHandle, useRef, useMemo, type Ref } from 'react';
+import { usePropsValue } from './hooks';
 interface CommonProps {
   /** 自定义类名 */
   className?: string;
@@ -28,7 +28,7 @@ const NativeInput = ({
   data,
   render,
   value,
-  defaultValue = "",
+  defaultValue = '',
   onChange,
   ...rest
 }: NativeInputProps<string>) => {
@@ -46,26 +46,17 @@ const NativeInput = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFinalValue(e.target.value);
   };
-  useImperativeHandle(
-    ref,
-    () => {
-      return {
-        focus() {
-          inputRef.current?.focus();
-        },
-      };
-    },
-    []
-  );
+  useImperativeHandle(ref, () => {
+    return {
+      focus() {
+        inputRef.current?.focus();
+      },
+    };
+  }, []);
 
   return (
     <>
-      <input
-        ref={inputRef}
-        value={finalValue}
-        onChange={handleChange}
-        {...rest}
-      />
+      <input ref={inputRef} value={finalValue} onChange={handleChange} {...rest} />
       {detailText}
     </>
   );

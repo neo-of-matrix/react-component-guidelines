@@ -1,5 +1,5 @@
-import { useRef, type SetStateAction } from "react";
-import useUpdate from "./useUpdate";
+import { useRef, type SetStateAction } from 'react';
+import useUpdate from './useUpdate';
 export interface Options<T> {
   value?: T;
   defaultValue: T;
@@ -14,10 +14,7 @@ const usePropsValue = <T>(options: Options<T>) => {
     stateRef.current = value;
   }
   const setState = (v: SetStateAction<T>) => {
-    const nextValue =
-      typeof v === "function"
-        ? (v as (prevState: T) => T)(stateRef.current)
-        : v;
+    const nextValue = typeof v === 'function' ? (v as (prevState: T) => T)(stateRef.current) : v;
     if (nextValue === stateRef.current) {
       return;
     }

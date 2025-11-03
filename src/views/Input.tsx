@@ -1,8 +1,8 @@
-import { CustomInput } from "@components/base/index";
-import { useRef, useCallback, useState } from "react";
-import { Space, Button, Card } from "antd";
-import type { InputRef } from "antd";
-import type { RefProps } from "@components/base/index";
+import { CustomInput } from '@components/base/index';
+import { useRef, useCallback, useState } from 'react';
+import { Space, Button, Card } from 'antd';
+import type { InputRef } from 'antd';
+import type { RefProps } from '@components/base/index';
 // import type { ComponentProps, ComponentRef } from "react";
 
 // type CustomInputProps = ComponentProps<typeof CustomInput>;
@@ -16,7 +16,7 @@ function Input() {
   const render = useCallback((value?: string) => {
     return <div>{value}</div>;
   }, []);
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>('');
   const handleChange = (value: string) => {
     setValue(value);
   };
@@ -25,14 +25,14 @@ function Input() {
   const handleClick = () => {
     ref.current?.focus();
   };
-  const [antdValue, setAntdValue] = useState<string>("");
+  const [antdValue, setAntdValue] = useState<string>('');
   const antdHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAntdValue(e.target.value);
   };
   return (
     <Space direction="vertical" size="middle">
       <Card title="原生 Input：" size="small">
-        <Space direction="vertical" style={{ width: "100%" }}>
+        <Space direction="vertical" style={{ width: '100%' }}>
           <Space.Compact>
             <CustomInput.NativeInput
               ref={nativeRef}
@@ -48,13 +48,9 @@ function Input() {
         </Space>
       </Card>
       <Card title="Antd Input：" size="small">
-        <Space direction="vertical" style={{ width: "100%" }}>
+        <Space direction="vertical" style={{ width: '100%' }}>
           <Space.Compact>
-            <CustomInput
-              ref={ref}
-              value={antdValue}
-              onChange={antdHandleChange}
-            />
+            <CustomInput ref={ref} value={antdValue} onChange={antdHandleChange} />
             <Button type="primary" onClick={handleClick}>
               聚焦
             </Button>

@@ -16,7 +16,7 @@ export interface CommonProps {
 }
 export interface MyInputProps extends CommonProps {
   /** 值 */
-  value: any
+  value: any;
 }
 const MyInput = forwardRef((props: MyInputProps, ref: React.LegacyRef<HTMLDivElement>) => {
   const { className, ...rest } = props;
@@ -27,25 +27,25 @@ const MyInput = forwardRef((props: MyInputProps, ref: React.LegacyRef<HTMLDivEle
     </div>
   );
 });
-export default ChcInput
+export default ChcInput;
 ```
 
 # 注释使用原则
 
--   原则上所有的 `props` 和 `ref 属性` 类型都需要有注释
--   且所有属性（`props`和`ref 属性`）禁用 `// 注释内容` 语法注释，因为此注释不会被 ts 识别，也就是鼠标悬浮的时候不会出现对应注释文案
--   常用的注视参数 `@description` 描述, `@version` 新属性的起始版本, `@deprecated` 废弃的版本, `@default` 默认值
--   面向国际化使用的组件一般描述语言推荐使用英文
+- 原则上所有的 `props` 和 `ref 属性` 类型都需要有注释
+- 且所有属性（`props`和`ref 属性`）禁用 `// 注释内容` 语法注释，因为此注释不会被 ts 识别，也就是鼠标悬浮的时候不会出现对应注释文案
+- 常用的注视参数 `@description` 描述, `@version` 新属性的起始版本, `@deprecated` 废弃的版本, `@default` 默认值
+- 面向国际化使用的组件一般描述语言推荐使用英文
 
 bad ❌
 
 ```ts
 interface MyInputsProps {
   // 自定义class
-  className?: string
+  className?: string;
 }
-const test: MyInputsProps = {}
-test.className
+const test: MyInputsProps = {};
+test.className;
 ```
 
 ![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/74d69fcae6124c239c972fab1a90937c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5bCP5YiY6bit5Zyw5LiL5Z-O:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTIwMTA4MzkxNTcwNTAzMiJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1760311645&x-orig-sign=PwpN01eVQh0QO5RqLuvL10VkwBw%3D)
@@ -56,7 +56,7 @@ after good ✅
 ```ts
 interface MyInputsProps {
   /**  custom class */
-  className?: string
+  className?: string;
   /**
    * @description Custom inline style
    * @version 2.6.0
@@ -70,18 +70,18 @@ interface MyInputsProps {
    */
   customTitleStyle?: React.CSSProperties;
 }
-const test: MyInputsProps = {}
-test.className
+const test: MyInputsProps = {};
+test.className;
 ```
 
 ![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b3bf024ba6d04080949b63d0feba2293~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5bCP5YiY6bit5Zyw5LiL5Z-O:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTIwMTA4MzkxNTcwNTAzMiJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1760311645&x-orig-sign=OTWAVaNuvb92IInexe1X5GaMIhc%3D)
 
 # export 导出组件原则
 
--   组件 `props` 类型必须 `export` 导出
--   如有 `useImperativeHandle` 则 `ref`类型必须 `export` 导出
--   组件导出 `function` 必须有名称
--   组件 `function` 一般 `export default` 默认导出
+- 组件 `props` 类型必须 `export` 导出
+- 如有 `useImperativeHandle` 则 `ref`类型必须 `export` 导出
+- 组件导出 `function` 必须有名称
+- 组件 `function` 一般 `export default` 默认导出
 
 在没有名称的组件报错时不利于定位到具体的报错组件
 
@@ -130,30 +130,30 @@ export default MyInput
 index.ts
 
 ```ts
-export * from './input'
+export * from './input';
 export { default as MyInput } from './input';
 ```
 
 当然如果目标组件没有暴露相关的类型，可以通过 `ComponentProps` 和 `ComponentRef` 来分别获取组件的 `props` 和 `ref` 属性
 
 ```ts
-type DialogProps = ComponentProps<typeof Dialog> 
-type DialogRef = ComponentRef<typeof Dialog> 
+type DialogProps = ComponentProps<typeof Dialog>;
+type DialogRef = ComponentRef<typeof Dialog>;
 ```
 
 # 入参类型约束原则
 
 **入参类型必须遵循具体原则**
 
--   确定入参类型的可能情况下，切忌不可用`基本类型`一笔带过
--   公共组件一般不使用`枚举`作为入参类型，因为这样在使用者需要引入此枚举才可以不报错
--   部分数值类型的参数需要描述最大和最小值
+- 确定入参类型的可能情况下，切忌不可用`基本类型`一笔带过
+- 公共组件一般不使用`枚举`作为入参类型，因为这样在使用者需要引入此枚举才可以不报错
+- 部分数值类型的参数需要描述最大和最小值
 
 bad ❌
 
 ```ts
 interface InputProps {
-  status: string
+  status: string;
 }
 ```
 
@@ -161,7 +161,7 @@ after good ✅
 
 ```ts
 interface InputProps {
-  status: 'success' | 'fail'
+  status: 'success' | 'fail';
 }
 ```
 
@@ -170,7 +170,7 @@ bad ❌
 ```ts
 interface InputProps {
   /** 总数 */
-  count: number
+  count: number;
 }
 ```
 
@@ -179,44 +179,44 @@ after good ✅
 ```ts
 interface InputProps {
   /** 总数 0-999 */
-  count: number
+  count: number;
 }
 ```
 
 # class 和 style 定义规则
 
--   禁用 CSS module 因为此类写法会让使用者无法修改组件内部样式
--   书写组件时，内部的 `class` 一定要加上统一的`前缀`来区分组件内外 `class`，避免和外部的 class 类有重复
--   class 类的名称需要语意化
--   组件内部的所有 class 类都可以被外部使用者改变
--   禁用 important，不到万不得已不用行内样式
--   可以为颜色相关 CSS 属性留好 CSS 变量，方便外部开发主题切换
+- 禁用 CSS module 因为此类写法会让使用者无法修改组件内部样式
+- 书写组件时，内部的 `class` 一定要加上统一的`前缀`来区分组件内外 `class`，避免和外部的 class 类有重复
+- class 类的名称需要语意化
+- 组件内部的所有 class 类都可以被外部使用者改变
+- 禁用 important，不到万不得已不用行内样式
+- 可以为颜色相关 CSS 属性留好 CSS 变量，方便外部开发主题切换
 
 bad ❌
 
 ```tsx
-import styles from './index.module.less'
+import styles from './index.module.less';
 export default function MyInput(props: MyInputProps) {
   return (
     <div className={styles.input_box}>
       <span className={styles.detail}>21312312</span>
     </div>
   );
-};
+}
 ```
 
 after good ✅
 
 ```tsx
-import './index.less'
-const prefixCls = 'my-input' // 统一的组件内部前缀
+import './index.less';
+const prefixCls = 'my-input'; // 统一的组件内部前缀
 export default function MyInput(props: MyInputProps) {
   return (
     <div className={`${prefixCls}-box`}>
       <span className={`${prefixCls}-detail`}>21312312</span>
     </div>
   );
-};
+}
 ```
 
 after good ✅
@@ -235,23 +235,21 @@ after good ✅
 bad ❌
 
 ```tsx
-import { Input } from '某组件库'
+import { Input } from '某组件库';
 export interface MyInputProps {
   /** 值 */
-  value: string
+  value: string;
   /** 限制 */
-  limit: number
+  limit: number;
   /** 状态 */
-  state: string
+  state: string;
 }
 const MyInput = (props: Partial<MyInputProps>) => {
-  const { value, limit, state } = props
+  const { value, limit, state } = props;
   // ...一些处理
-  return (
-    <Input value={value} limit={limit} state={state}  />
-  )
-}
-export default MyInput
+  return <Input value={value} limit={limit} state={state} />;
+};
+export default MyInput;
 ```
 
 以`extends`继承基础组件的所有属性，并用`...rest` 承接所有传入的属性，并绑定到我们的基准组件上。
@@ -259,20 +257,19 @@ export default MyInput
 after good ✅
 
 ```tsx
-import { Input, InputProps } from '某组件库'
+import { Input, InputProps } from '某组件库';
 export interface MyInputProps extends InputProps {
   /** 值 */
-  value: string
+  value: string;
 }
 const MyInput = (props: Partial<MyInputProps>) => {
-  const { value, ...rest } = props
+  const { value, ...rest } = props;
   // ...一些处理
-  return (
-    <Input value={value} {...rest}  />
-  )
-}
-export default MyInput
+  return <Input value={value} {...rest} />;
+};
+export default MyInput;
 ```
+
 # 事件配套原则
 
 任何组件内部操作导致 `UI视图` 改变都需要有配套的事件，来给使用者提供全量的触发钩子，提高组件的可用性
@@ -331,6 +328,7 @@ export default function MyInput(props: MyInputProps) {
   );
 };
 ```
+
 # ref 绑定原则
 
 任何书写的组件有可能绑定 `ref` 情况下都需要暴露有 `ref` 属性，不然使用者一旦挂载 `ref` 则会导致控制台报错警告。
@@ -340,25 +338,25 @@ export default function MyInput(props: MyInputProps) {
 ```tsx
 interface ChcInputRef {
   /** 值 */
-  setValidView: (isShow?: boolean) => void,
+  setValidView: (isShow?: boolean) => void;
   /** 值 */
-  field: Field
+  field: Field;
 }
 const ChcInput = forwardRef<ChcInputRef, MyProps>((props, ref) => {
   const { className, ...rest } = props;
-  useImperativeHandle(ref, () => ({
-    setValidView(isShow = false) {
-      setIsCheckBalloonVisible(isShow);
-    },
-    field
-  }), []);
-  return (
-    <div className={displayClassName}>
-          ...
-    </div>
+  useImperativeHandle(
+    ref,
+    () => ({
+      setValidView(isShow = false) {
+        setIsCheckBalloonVisible(isShow);
+      },
+      field,
+    }),
+    [],
   );
+  return <div className={displayClassName}>...</div>;
 });
-export default ChcInput
+export default ChcInput;
 ```
 
 ```tsx
@@ -366,25 +364,25 @@ const ChcInput = forwardRef((props: MyProps, ref: React.LegacyRef<HTMLDivElement
   const { className, ...rest } = props;
   const displayClassName = classNames('chc-input', className);
   return (
-      <div ref={ref} className={displayClassName}>
-          <span></span>
-          ...
-      </div>
+    <div ref={ref} className={displayClassName}>
+      <span></span>
+      ...
+    </div>
   );
 });
-export default ChcInput
+export default ChcInput;
 ```
 
 - 二次封装组件：则直接 `ref` 绑定在原基础组件上或组件根节点
 
 ```tsx
-import { Input } from '某组件库'
+import { Input } from '某组件库';
 const ChcInput = forwardRef((props: InputProps, ref: React.LegacyRef<Input>) => {
   const { className, ...rest } = props;
   const displayClassName = classNames('chc-input', className);
   return <Input ref={ref} className={displayClassName} {...rest} />;
 });
-export default ChcInput
+export default ChcInput;
 ```
 
 # 自定义扩展性原则
@@ -398,16 +396,19 @@ bad ❌
 
 ```tsx
 export default function MyInput(props: MyInputProps) {
-  const { value } = props
+  const { value } = props;
   const detailText = useMemo(() => {
-      return value.split(',').map(item => `组件内部复杂的逻辑：${item}`).join('\n')
-  }, [value])
+    return value
+      .split(',')
+      .map((item) => `组件内部复杂的逻辑：${item}`)
+      .join('\n');
+  }, [value]);
   return (
     <div>
       <span>{detailText}</span>
     </div>
   );
-};
+}
 ```
 
 after good ✅
@@ -416,17 +417,22 @@ after good ✅
 
 ```tsx
 export default function MyInput(props: MyInputProps) {
-  const { value, render } = props
+  const { value, render } = props;
   const detailText = useMemo(() => {
-      // render 用户自定义渲染
-      return render ? render(value) : value.split(',').map(item => `组件内部复杂的逻辑：${item}`).join('\n')
-  }, [value])
+    // render 用户自定义渲染
+    return render
+      ? render(value)
+      : value
+          .split(',')
+          .map((item) => `组件内部复杂的逻辑：${item}`)
+          .join('\n');
+  }, [value]);
   return (
     <div>
       <span>{detailText}</span>
     </div>
   );
-};
+}
 ```
 
 # 受控与非受控模式原则
@@ -442,7 +448,7 @@ bad ❌（只有一种受控模式）
 
 ```tsx
 import classNames from 'classnames';
-const prefixCls = 'my-input' 
+const prefixCls = 'my-input'
 export default function MyInput(props: MyInputProps) {
   const { value, className, style, onChange } = props
   const currClassName = classNames(className, {
@@ -464,7 +470,7 @@ after good ✅
 
 ```tsx
 import classNames from 'classnames';
-const prefixCls = 'my-input' 
+const prefixCls = 'my-input'
 export default function MyInput(props: MyInputProps) {
   const { value, defaultValue = true, className, style, onChange } = props
   // 实现非受控模式
@@ -499,7 +505,7 @@ export default function MyInput(props: MyInputProps) {
 bad ❌
 
 ```tsx
-import { useLatest } from 'ahooks'  // 之前组件库无 ahooks, 会引入新的依赖！
+import { useLatest } from 'ahooks'; // 之前组件库无 ahooks, 会引入新的依赖！
 import classNames from 'classnames';
 const ChcInput = forwardRef((props: InputProps, ref: React.LegacyRef<Input>) => {
   const { className, ...rest } = props;
@@ -507,7 +513,7 @@ const ChcInput = forwardRef((props: InputProps, ref: React.LegacyRef<Input>) => 
   const funcRef = useLatest(func); // 解决回调内无法获取最新state问题
   return <div className={displayClassName} {...rest}></div>;
 });
-export default ChcInput
+export default ChcInput;
 ```
 
 after good ✅
@@ -549,12 +555,10 @@ const MyShowPage = (props: MyTableProps) => {
     <div>
       <Table ref={ref} data={data} {...rest}>
         {/* 表格显示相关功能封装 ...省略一堆代码 */}
-      </Table> 
-      <div>
-        {/* 图例相关功能封装  ...省略一堆代码 */}
-      </div>
+      </Table>
+      <div>{/* 图例相关功能封装  ...省略一堆代码 */}</div>
     </div>
-  )
+  );
 };
 ```
 
@@ -573,7 +577,6 @@ const MyShowPage = (props: MyTableProps) => {
     </div>
   );
 };
-
 ```
 
 当然如果完全没有复用价值的组件或功能点也是没必要拆分的。
@@ -582,8 +585,8 @@ const MyShowPage = (props: MyTableProps) => {
 
 组件分为通用组件和业务组件，两者比较有明确的界限
 
--   通用组件更看重通用功能性和基本内容展示，组件涵盖的使用范围广
--   业务组件更看重业务的实现，组件的使用范围绑定具体的业务内容
+- 通用组件更看重通用功能性和基本内容展示，组件涵盖的使用范围广
+- 业务组件更看重业务的实现，组件的使用范围绑定具体的业务内容
 
 ## 通用组件内部不能包含业务
 
@@ -601,11 +604,11 @@ const MyTable = (props: MyTableProps) => {
     return Math.abs(item.value);
   };
   const styleRender = (item: ListItem) => {
-    return item.value < 0 ? { color: "red" } : undefined;
+    return item.value < 0 ? { color: 'red' } : undefined;
   };
   const tableColumns = useMemo(() => {
     return columns.map((item) => {
-      if (item.name === "value") {
+      if (item.name === 'value') {
         return {
           ...item,
           render: dataRender,
@@ -624,7 +627,6 @@ const MyTable = (props: MyTableProps) => {
     </Table>
   );
 };
-
 ```
 
 显然这样的逻辑在一个通用组件内是不合理的，业务性太强，开发者在使用的时候还要纳闷为什么值都是正数，难道是接口返回有问题？  
@@ -637,12 +639,14 @@ after good ✅
 ```tsx
 const MyTable = forwardRef((props: MyTableProps, ref: React.LegacyRef<Table>) => {
   const { data, columns, ...rest } = props;
-  
+
   return (
     <Table ref={ref} data={tableData} {...rest}>
-      {columns.map(column => <Table.Column {...column}/>)}
+      {columns.map((column) => (
+        <Table.Column {...column} />
+      ))}
     </Table>
-  )
+  );
 });
 ```
 
@@ -652,24 +656,25 @@ const MyTable = forwardRef((props: MyTableProps, ref: React.LegacyRef<Table>) =>
 const columns = [
   {
     title: '名称',
-    name: 'name', 
+    name: 'name',
   },
-  { 
-    title: '数值', 
-    name: 'value', 
-    render: item => Math.abs(item.value), 
-    style: item => item.value < 0 ? { color: 'red' } : undefined 
+  {
+    title: '数值',
+    name: 'value',
+    render: (item) => Math.abs(item.value),
+    style: (item) => (item.value < 0 ? { color: 'red' } : undefined),
   },
-]
+];
 const Home = (props: MyTableProps) => {
   const [list, setList] = useState([]);
   return (
     <View>
       <Table data={list} columns={columns} />
     </View>
-  )
+  );
 };
 ```
+
 ## 业务组件尽可能的在内部实现业务，降低使用者的使用负担
 
 我们在封装业务组件的时候，切忌不可将相关复杂的业务逻辑以及运算放到组件外面由使用者去实现，在组件内部只是一些简单的封装；这很难达到业务组件的价值最大化，业务组件的目的就是聚焦某个业务尽可能的帮开发者快速完成。
@@ -683,11 +688,11 @@ const MyMusicTable = forwardRef((props: MyTableProps, ref: React.LegacyRef<Table
   const { data, ...rest } = props;
   return (
     <Table ref={ref} data={data} {...rest}>
-      <Table.Column dataIndex="test1" title="标题1"/>
-      <Table.Column dataIndex="test2" title="标题2"/>
-      <Table.Column dataIndex="data" title="值"/>
+      <Table.Column dataIndex="test1" title="标题1" />
+      <Table.Column dataIndex="test2" title="标题2" />
+      <Table.Column dataIndex="data" title="值" />
     </Table>
-  )
+  );
 });
 ```
 
@@ -735,7 +740,7 @@ return <MyMusicTable data={res} />;
 
 ## 通用组件和业务组件混淆
 
-业务开发的时候经常会出现因为样式一样，就把两个毫不相关的业务揉到一个组件里去，通过 `if else` 隔离，这是一个很不好的行为，这是混淆了业务组件和通用组件的概念，也没做到业务隔离。  
+业务开发的时候经常会出现因为样式一样，就把两个毫不相关的业务揉到一个组件里去，通过 `if else` 隔离，这是一个很不好的行为，这是混淆了业务组件和通用组件的概念，也没做到业务隔离。
 
 如下例子因为光源和声音的 `UI` 样式差不多，用户将两个功能都封装到了一个 `LightSound` 业务组件内:
 
@@ -824,9 +829,10 @@ const Light = (props: LightProps) => {
   )
 });
 ```
+
 # 最大深度扩展性
 
-当组件传入的数据可能会有树形等有深度的格式，而组件内部也会针对其渲染出有递归深度的 `UI` 时，需要考虑到使用者对于数据深度的不可控性，组件内部需要预留好无限深度的可能  
+当组件传入的数据可能会有树形等有深度的格式，而组件内部也会针对其渲染出有递归深度的 `UI` 时，需要考虑到使用者对于数据深度的不可控性，组件内部需要预留好无限深度的可能
 
 如下渲染组件方式只有一层的深度，很有局限性
 
@@ -886,25 +892,26 @@ const MyColumn = (props: MyColumnProps) => {
   );
 };
 ```
+
 # 多语言可配制化
 
--   组件内部所有的语言都需要可以修改，兼容多语言的使用场景
--   默认推荐英文
--   内部语言变量较多时可以统一暴露一个例如 `strings` 对象参数，其内部可以传入所有可以替换文案的 `key`
+- 组件内部所有的语言都需要可以修改，兼容多语言的使用场景
+- 默认推荐英文
+- 内部语言变量较多时可以统一暴露一个例如 `strings` 对象参数，其内部可以传入所有可以替换文案的 `key`
 
 ```ts
-const strings={
+const strings = {
   title: '标题',
   cancel: '取消',
-}
+};
 ```
 
 bad ❌
 
 ```tsx
-const prefixCls = "my-input"; // 统一的组件内部前缀
+const prefixCls = 'my-input'; // 统一的组件内部前缀
 export default function MyInput(props: MyInputProps) {
-  const { title = "标题" } = props;
+  const { title = '标题' } = props;
   return (
     <div className={`${prefixCls}-box`}>
       <span className={`${prefixCls}-title`}>{title}</span>
@@ -917,9 +924,9 @@ export default function MyInput(props: MyInputProps) {
 after good ✅
 
 ```tsx
-const prefixCls = "my-input"; // 统一的组件内部前缀
+const prefixCls = 'my-input'; // 统一的组件内部前缀
 export default function MyInput(props: MyInputProps) {
-  const { title = "title", detail = "detail" } = props;
+  const { title = 'title', detail = 'detail' } = props;
   return (
     <div className={`${prefixCls}-box`}>
       <span className={`${prefixCls}-title`}>{title}</span>
@@ -928,11 +935,12 @@ export default function MyInput(props: MyInputProps) {
   );
 }
 ```
+
 # 异常捕获和提示
 
--   对于用户传入意外的参数可能带来错误时要控制台 `console.error` 提示
--   不要直接在组件内部 `throw error`，这样会导致用户的白屏
--   缺少某些参数或者参数不符合要求但不会导致报错时可以使用 `console.warn` 提示
+- 对于用户传入意外的参数可能带来错误时要控制台 `console.error` 提示
+- 不要直接在组件内部 `throw error`，这样会导致用户的白屏
+- 缺少某些参数或者参数不符合要求但不会导致报错时可以使用 `console.warn` 提示
 
 bad ❌
 
@@ -959,7 +967,7 @@ export default function MyCanvas(props: MyCanvasProps) {
 
   useEffect(() => {
     if (!instanceId) {
-      console.error("missing instanceId!");
+      console.error('missing instanceId!');
       return;
     }
     initDom(instanceId);
@@ -971,6 +979,7 @@ export default function MyCanvas(props: MyCanvasProps) {
   );
 }
 ```
+
 # 语义化原则
 
 组件的命名，组件的 `api`，方法，包括内部的变量定义都要遵循语义化的原则，严格按照其代表的功能来命名。

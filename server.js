@@ -1,11 +1,11 @@
-import http from "node:http";
-import fs from "node:fs";
-import path from "node:path";
-import multiparty from "multiparty";
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import multiparty from 'multiparty';
 
 // 常量定义
-const TEMP_DIR = "./dist/temp";
-const UPLOAD_DIR = "./dist/uploads";
+const TEMP_DIR = './dist/temp';
+const UPLOAD_DIR = './dist/uploads';
 
 // 初始化目录
 function initDirectories() {
@@ -15,10 +15,10 @@ function initDirectories() {
 
 // 处理跨域请求
 function handleCors(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  if (req.method === "OPTIONS") {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
     res.writeHead(200);
     res.end();
     return true;
@@ -36,7 +36,7 @@ async function handleChunkUpload(req, res) {
   return new Promise((resolve) => {
     form.parse(req, async (err, fields, files) => {
       if (err) {
-        console.error("Error parsing chunk:", err);
+        console.error('Error parsing chunk:', err);
         res.statusCode = 500;
         res.end(JSON.stringify({ success: false, error: err.message }));
         return resolve(false);
@@ -61,7 +61,7 @@ async function handleChunkUpload(req, res) {
           chunkIndex,
           totalChunks,
           receivedChunks: fs.readdirSync(chunkDir).length,
-        })
+        }),
       );
       resolve(true);
     });
@@ -70,13 +70,13 @@ async function handleChunkUpload(req, res) {
 
 // 处理分片合并
 async function handleChunkMerge(req, res) {
-  let body = "";
-  req.on("data", (chunk) => {
+  let body = '';
+  req.on('data', (chunk) => {
     body += chunk.toString();
   });
 
   return new Promise((resolve) => {
-    req.on("end", async () => {
+    req.on('end', async () => {
       try {
         const { fileId, originalFilename, totalChunks } = JSON.parse(body);
         const chunkDir = path.join(TEMP_DIR, fileId);
@@ -88,7 +88,7 @@ async function handleChunkMerge(req, res) {
             JSON.stringify({
               success: false,
               error: `Missing chunks. Received ${receivedChunks} of ${totalChunks}`,
-            })
+            }),
           );
           return resolve(false);
         }
@@ -104,10 +104,10 @@ async function handleChunkMerge(req, res) {
 
         writeStream.end();
 
-        writeStream.on("finish", () => {
+        writeStream.on('finish', () => {
           fs.rm(chunkDir, { recursive: true }, (err) => {
             if (err) console.error(err.message);
-            else console.log("Chunk directory deleted successfully");
+            else console.log('Chunk directory deleted successfully');
           });
           res.statusCode = 200;
           res.end(
@@ -117,16 +117,16 @@ async function handleChunkMerge(req, res) {
               originalFilename,
               filePath: mergedFilePath,
               size: fs.statSync(mergedFilePath).size,
-            })
+            }),
           );
           resolve(true);
         });
 
-        writeStream.on("error", (err) => {
+        writeStream.on('error', (err) => {
           throw err;
         });
       } catch (err) {
-        console.error("Error merging chunks:", err);
+        console.error('Error merging chunks:', err);
         res.statusCode = 500;
         res.end(JSON.stringify({ success: false, error: err.message }));
         resolve(false);
@@ -138,22 +138,22 @@ async function handleChunkMerge(req, res) {
 // 主服务器逻辑
 function createServer() {
   initDirectories();
-  
+
   const server = http.createServer(async (req, res) => {
     if (handleCors(req, res)) return;
 
-    if (req.method === "POST" && req.url === "/upload-chunk") {
+    if (req.method === 'POST' && req.url === '/upload-chunk') {
       await handleChunkUpload(req, res);
       return;
     }
 
-    if (req.method === "POST" && req.url === "/merge-chunks") {
+    if (req.method === 'POST' && req.url === '/merge-chunks') {
       await handleChunkMerge(req, res);
       return;
     }
 
     res.statusCode = 404;
-    res.end("Not found");
+    res.end('Not found');
   });
 
   return server;
@@ -163,7 +163,7 @@ function createServer() {
 function startServer() {
   const server = createServer();
   server.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
+    console.log('Server running at http://localhost:3000');
   });
 }
 

@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import { useState } from "react";
-import { Input, Button, Space } from "antd";
-import type { Ref } from "react";
-import type { InputProps, InputRef } from "antd";
+import classNames from 'classnames';
+import { useState } from 'react';
+import { Input, Button, Space } from 'antd';
+import type { Ref } from 'react';
+import type { InputProps, InputRef } from 'antd';
 
-import "./style/index.less";
-const prefixCls = "custom-input"; // 统一的组件内部前缀
+import './style/index.less';
+const prefixCls = 'custom-input'; // 统一的组件内部前缀
 
 export interface CustomInputProps extends InputProps {
   /** 输入框暴露自定义的 ref 方法 */
@@ -16,7 +16,7 @@ export interface CustomInputProps extends InputProps {
    * @deprecated 1.0.0 废弃
    * @default ''
    */
-  validationStatus?: "success" | "fail";
+  validationStatus?: 'success' | 'fail';
   /** 总数 0-999 */
   countNum?: number;
   changeButtonStatus?: (status: boolean) => void;
@@ -36,10 +36,10 @@ const CustomInput = ({
     changeButtonStatus?.(!open);
   };
   return (
-    <Space.Compact style={{ width: "100%" }}>
+    <Space.Compact style={{ width: '100%' }}>
       <Input ref={ref} className={displayClassName} {...rest} />
       <Button type="primary" onClick={onCheckOpen}>
-        {open ? "打开" : "关闭"}
+        {open ? '打开' : '关闭'}
       </Button>
     </Space.Compact>
   );
