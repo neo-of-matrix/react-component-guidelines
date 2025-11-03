@@ -17,8 +17,8 @@ function Input() {
     return <div>{value}</div>;
   }, []);
   const [value, setValue] = useState<string>('');
-  const handleChange = (value: string) => {
-    setValue(value);
+  const handleChange = (inputValue: string) => {
+    setValue(inputValue);
   };
   // antd Input
   const ref = useRef<InputRef>(null);

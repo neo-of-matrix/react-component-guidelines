@@ -12,6 +12,7 @@ export default defineConfig({
     alias: {
       '@': '/src',
       '@components': '/src/components',
+      '@requests': '/src/requests',
     },
   },
 });

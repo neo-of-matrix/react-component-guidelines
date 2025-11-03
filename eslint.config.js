@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
+import { typescriptRules } from './eslintRules/typescriptRules.js';
 
 export default defineConfig([
   globalIgnores(['node_modules/', '.git/', 'dist/', '.github/', '.devcontainer', 'bin/']),
@@ -15,6 +16,9 @@ export default defineConfig([
       tseslint.configs.stylisticTypeChecked,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
+      {
+        rules: typescriptRules.rules,
+      },
     ],
     languageOptions: {
       ecmaVersion: 2020,

@@ -21,6 +21,7 @@ const BigFileUpload: React.FC = () => {
       setUploading(false);
       message.success('上传成功');
     } catch (error) {
+      console.error('🚀 ~ handleUpload ~ error:', error);
       setUploading(false);
       message.error('上传失败');
     }

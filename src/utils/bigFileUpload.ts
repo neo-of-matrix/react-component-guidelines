@@ -1,3 +1,4 @@
+import { mergeChunksRequest } from '@requests/upload';
 // 前端分片上传代码
 const createChunk = ({
   file,
@@ -39,25 +40,12 @@ const uploadChunk = async (formData: FormData) => {
 };
 const mergeChunks = async (file: File, fileId: string, totalChunks: number) => {
   // 所有分片上传完成后，通知后端合并
-  try {
-    const response = await fetch('http://localhost:3000/merge-chunks', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        fileId,
-        originalFilename: file.name,
-        totalChunks,
-      }),
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (err) {
-    console.error('Error merging chunks:', err);
-    throw err;
-  }
+  const result = await mergeChunksRequest({
+    fileId,
+    originalFilename: file.name,
+    totalChunks,
+  });
+  return result;
 };
 async function concurrentUpload(chunkList: FormData[], maxConcurrent = 3) {
   const results = [];
