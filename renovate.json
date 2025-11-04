@@ -11,5 +11,8 @@
   },
   "minor": {
     "schedule": ["on the 1st day of the month"]
+  },
+  "major": {
+    "enabled": false
   }
 }
