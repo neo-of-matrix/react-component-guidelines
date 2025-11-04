@@ -12,3 +12,4 @@ yarn.lock
 .github
 .devcontainer
 bin
+stats.html

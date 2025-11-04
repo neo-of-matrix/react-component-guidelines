@@ -1,15 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["patch"]
-    }
-  ],
   "automerge": false,
   "automergeType": "pr",
   "labels": ["dependencies"],
   "baseBranchPatterns": ["develop"],
-  "schedule": ["every weekday"],
-  "recreateWhen": "never"
+  "recreateWhen": "never",
+  "patch": {
+    "schedule": ["every weekday"]
+  },
+  "minor": {
+    "schedule": ["on the 1st day of the month"]
+  }
 }
