@@ -39,6 +39,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.8.1
         version: 19.8.1
+      '@cspell/cspell-types':
+        specifier: ^9.3.0
+        version: 9.3.0
       '@types/react':
         specifier: ^19.1.17
         version: 19.2.2
@@ -809,6 +812,10 @@ packages:
 
   '@cspell/cspell-types@9.2.2':
     resolution: {integrity: sha512-/1dRFQ3sEY9Yo+f3w0A8MFJ0BOapQc1uFjlMF19c3uoD/e4PpNLpL1qXY4FeLWKDk1D9VT8SL93J+lIwEi5bvg==}
+    engines: {node: '>=20'}
+
+  '@cspell/cspell-types@9.3.0':
+    resolution: {integrity: sha512-WN3R4nqQ7BEgS8UEoPIwNBRuSFT/8GImqXmlx7EHmzBAhevWjF3IDF+OEtokRJ95qik6a4xqJJTJgi624UxDFg==}
     engines: {node: '>=20'}
 
   '@cspell/dict-ada@4.1.1':
@@ -4942,6 +4949,8 @@ snapshots:
   '@cspell/cspell-service-bus@9.2.2': {}
 
   '@cspell/cspell-types@9.2.2': {}
+
+  '@cspell/cspell-types@9.3.0': {}
 
   '@cspell/dict-ada@4.1.1': {}
 
