@@ -27,8 +27,7 @@
     "prepare": "husky",
     "preview": "vite preview",
     "server": "node server.js",
-    "spellCheck": "cspell . --no-summary --no-progress --no-must-find-files",
-    "spellCheck1": "cspell trace 'nonblock'"
+    "spellCheck": "cspell . --no-summary --no-progress --no-must-find-files"
   },
   "lint-staged": {
     "*.*": "cspell --no-summary --no-progress --no-must-find-files",
