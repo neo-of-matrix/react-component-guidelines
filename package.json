@@ -43,7 +43,7 @@
     "multiparty": "^4.2.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router": "^7.9.5"
+    "react-router": "^7.9.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
