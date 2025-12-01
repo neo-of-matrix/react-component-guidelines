@@ -48,7 +48,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@cspell/cspell-types": "^9.3.0",
+    "@cspell/cspell-types": "^9.3.2",
     "@types/react": "^19.1.17",
     "@types/react-dom": "^19.1.11",
     "@vitejs/plugin-react": "^5.0.4",
